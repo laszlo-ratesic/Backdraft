@@ -1,0 +1,22 @@
+{
+  "name": "backdraft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laszlo-ratesic/Backdraft.git"
+  },
+  "author": "Keenan Chiasson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laszlo-ratesic/Backdraft/issues"
+  },
+  "homepage": "https://github.com/laszlo-ratesic/Backdraft#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
