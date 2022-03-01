@@ -1,3 +1,6 @@
+const { default: generate } = require('@babel/generator');
+const { default: generateEmptyCoverage } = require('@jest/reporters/build/generateEmptyCoverage');
+const { writeFile } = require('fs');
 const inquirer = require('inquirer');
 const mailCheck = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/;
 
@@ -62,7 +65,16 @@ const promptUser = () => {
 
 
 
-promptUser();
+promptUser()
+.then((teamData) => {
+    return generatePage(teamData);
+})
+.then((pageData) => {
+    return writeFile(pageData);
+})
+.catch((err) => {
+    console.log(err);
+});
 
 
 
