@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const mailCheck = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/;
 
 const promptUser = () => {
     console.log("Hello and welcome to Backdraft!");
@@ -28,7 +29,33 @@ const promptUser = () => {
                     return false;
                 }
             }
-        }
+        },
+        {
+            type: 'input',
+            name: 'managerEmail',
+            message: "(Required) Please enter the team manager's email address:",
+            validate: (emailInput) => {
+                if (mailCheck.test(emailInput)) {
+                    return true;
+                } else {
+                    console.log(`You must enter a valid email address`);
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'managerOffice',
+            message: "Please enter the team manager's office number",
+            validate: (officeInput) => {
+                if (officeInput) {
+                    return true;
+                } else {
+                    console.log('Please enter an office number');
+                    return false;
+                }
+            }
+        },
     ])
 }
 
