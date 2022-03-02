@@ -67,7 +67,7 @@ const generateEngineerCards = (engineerArr) => {
                     <li
                         class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10"
                     >
-                        Github: ${github}
+                        Github: <a href="https://github.com/${github}" style="color: inherit;">${github}</a>
                     </li>
                 </ul>
             </div>
