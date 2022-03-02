@@ -1,11 +1,48 @@
+const generateManagerCard = (manager) => {
+  const { name, id, email, office, role } = manager;
+  return `<div
+  class="card shadow bg-black text-warning mx-3 my-5 border border-warning"
+  style="max-width: 23rem; min-width: 18rem; font-family: monospace;"
+  >
+  <h3
+      class="card-header bg-dark bg-gradient display-4 border-bottom border-warning text-break"
+  >
+      ${name}
+  </h3>
+  <div class="card-body">
+      <h4 class="card-title display-6">
+      ${role}
+      <i class="fa-solid fa-mug-hot"></i>
+      </h4>
+  </div>
+  <ul class="list-group list-group-flush lead">
+      <li
+      class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
+      >
+      Employee ID: ${id}
+      </li>
+      <li
+      class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
+      >
+      Email: <a href="mailto:${email}" style="color: inherit;">${email}</a>
+      </li>
+      <li
+      class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10"
+      >
+      Office Number: ${office}
+      </li>
+  </ul>
+  </div>`;
+};
+
 const generateEngineerCards = (engineerArr) => {
   return `
     ${engineerArr
-        .map(({ name, id, email, github, role }) => {
-            return `
+      .map(({ name, id, email, github, role }) => {
+        return `
             <div
             class="card shadow bg-black text-warning mx-3 my-5 border border-warning"
-            style="max-width: 23rem; font-family: monospace;"
+            style="max-width: 23rem; min-width: 18rem; font-family: monospace;"
             >
                 <h3 class="card-header bg-dark bg-gradient display-4 border-bottom border-warning text-break">
                     ${name}
@@ -16,7 +53,7 @@ const generateEngineerCards = (engineerArr) => {
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                     </h4>
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush lead">
                     <li
                         class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
                     >
@@ -25,7 +62,7 @@ const generateEngineerCards = (engineerArr) => {
                     <li
                         class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
                     >
-                        Email: ${email}
+                        Email: <a href="mailto:${email}" style="color: inherit;">${email}</a>
                     </li>
                     <li
                         class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10"
@@ -34,20 +71,19 @@ const generateEngineerCards = (engineerArr) => {
                     </li>
                 </ul>
             </div>
-            `
-        })
-        .join("")}
+            `;
+      })
+      .join("")}
     `;
 };
 
 const generateInternCards = (internsArr) => {
-    return `
-    ${internsArr
-        .map(({ name, id, email, school, role}) => {
-            return `
+  return `
+    ${internsArr.map(({ name, id, email, school, role }) => {
+      return `
             <div
               class="card shadow bg-black text-warning mx-3 my-5 border border-warning"
-              style="max-width: 23rem; font-family: monospace;"
+              style="max-width: 23rem; min-width: 18rem; font-family: monospace;"
             >
               <h3
                 class="card-header bg-dark bg-gradient display-4 border-bottom border-warning text-break"
@@ -60,7 +96,7 @@ const generateInternCards = (internsArr) => {
                   <i class="fa-solid fa-seedling"></i>
                 </h4>
               </div>
-              <ul class="list-group list-group-flush">
+              <ul class="list-group list-group-flush lead">
                 <li
                   class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
                 >
@@ -69,7 +105,7 @@ const generateInternCards = (internsArr) => {
                 <li
                   class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
                 >
-                  Email: ${email}
+                  Email: <a href="mailto:${email}" style="color: inherit;">${email}</a>
                 </li>
                 <li
                   class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10"
@@ -78,10 +114,10 @@ const generateInternCards = (internsArr) => {
                 </li>
               </ul>
             </div>
-            `
-        })}
-    `
-}
+            `;
+    })}
+    `;
+};
 
 module.exports = (teamData) => {
   const { manager, engineers, interns } = teamData;
@@ -129,41 +165,8 @@ module.exports = (teamData) => {
                 <!-- Card Container -->
             <div class="container mx-6">
                 <div class="d-flex flex-wrap justify-content-center">
-                    <!-- Manager Card -->
-                    <div
-                    class="card shadow bg-black text-warning mx-3 my-5 border border-warning"
-                    style="max-width: 23rem; font-family: monospace;"
-                    >
-                    <h3
-                        class="card-header bg-dark bg-gradient display-4 border-bottom border-warning text-break"
-                    >
-                        ${manager.name}
-                    </h3>
-                    <div class="card-body">
-                        <h4 class="card-title display-6">
-                        ${manager.role}
-                        <i class="fa-solid fa-mug-hot"></i>
-                        </h4>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li
-                        class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
-                        >
-                        Employee ID: ${manager.id}
-                        </li>
-                        <li
-                        class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10 border-bottom border-warning"
-                        >
-                        Email: ${manager.email}
-                        </li>
-                        <li
-                        class="list-group-item text-warning bg-dark bg-gradient bg-opacity-10"
-                        >
-                        Office Number: ${manager.office}
-                        </li>
-                    </ul>
-                    </div>
 
+                    ${generateManagerCard(manager)}
                     ${generateEngineerCards(engineers)}
                     ${generateInternCards(interns)}
 
