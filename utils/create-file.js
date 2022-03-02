@@ -16,4 +16,4 @@ const writeFile = (fileData) => {
     })
 }
 
-module.exports = { writeFile };
+module.exports = writeFile;
