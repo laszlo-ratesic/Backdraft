@@ -1,0 +1,8 @@
+# Ignore artifacts
+dist
+
+# Ignore Team
+/lib/Team.js
+
+# Ignore create-file
+/utils/create-file.js
