@@ -54,6 +54,8 @@ The hottest Node CLI for organizing your core team's contact information. Tests 
 
 This code is only provided as material for study and otherwise double-checking implementation of server-side APIs. Any violations of these use cases will result in rapidly falling barometers, flurries, wooly-wearing, and general grimness of the skies. 
 
+[Link to the walkthrough video!](media/walkthrough.mp4)
+
 ## 🥂 Credits
 
 UT Austin Coding Boot Camp https://techbootcamps.utexas.edu/coding/
